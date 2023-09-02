@@ -587,7 +587,14 @@ def handle_other_messages(message):
         update_photo_step(message, chat_id)
 
 
+def run_bot():
+    while True:
+        try:
+            bot.polling(none_stop=True)
+        except Exception as e:
+            print(f"Hata oluştu: {e}")
+            print("Kod durdu, 5 saniye sonra yeniden başlatılacak.")
+            time.sleep(5)  # 5 saniye bekleyin ve yeniden başlatın
 
 if __name__ == '__main__':
-  bot.polling(none_stop=True)
-  print(f"Hata oluştu: {e}")
+    run_bot()
