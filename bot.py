@@ -134,10 +134,7 @@ def start_matching(message):
         
 
         if match_result:
-            try:
-                match_id, match_username, match_age, match_region, match_info, match_foto1 = match_result
-            except ValueError:
-                pass
+            match_id, match_username, match_age, match_region, match_info, match_foto1 = match_result
 
           markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
           markup.add(types.KeyboardButton("❤️"), types.KeyboardButton("👎")) 
