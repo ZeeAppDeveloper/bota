@@ -597,4 +597,4 @@ def run_bot():
             time.sleep(5)  # 5 saniye bekleyin ve yeniden başlatın
 
 if __name__ == '__main__':
-    run_bot()
+    bot.polling(none_stop=True)
