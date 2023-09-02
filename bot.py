@@ -14,9 +14,9 @@ logging.basicConfig(level=logging.INFO)
 bot = telebot.TeleBot(API_TOKEN)
 
 # MySQL database connection information
-DB_HOST = 'db4free.net'
+DB_HOST = '85.31.239.189'
 DB_NAME = 'userdbtelegram'
-DB_USER = 'zadehh'
+DB_USER = 'root'
 DB_PASSWORD = 'Xalid1234'
 
 # Create a MySQL connection
