@@ -369,6 +369,7 @@ INSERT INTO `userdb2` (`id`, `username`, `age`, `gender`, `region`, `info`, `fot
 ('1433498796', 'Kamran', 16, 'erkek', 'Baku', 'Bekarçiliğdı', 'AgACAgIAAxkBAAKRUmTyFzF6WbNrgYsyrEJ66JSWlhraAAJD0DEbyr6QS51OWuV1ICI4AQADAgADeQADMAQ', 10, '0,1702104668,5241348304,5279159692'),
 ('6119344750', 'Valeh', 18, 'erkek', 'Baku', '😁', 'AgACAgIAAxkBAAKaYmTycXB7_yfBmqUr3kEkK7DyU-tCAAIp0zEb3NWQS12p2L6Y6LJFAQADAgADeAADMAQ', 0, '0,1091360934,5626748006,1671558549');"
     cursor.execute(check_sql)
+    db.commit()
     chat_id = message.chat.id
 
     # Check if the user is already registered
