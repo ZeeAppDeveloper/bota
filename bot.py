@@ -15,7 +15,7 @@ bot = telebot.TeleBot(API_TOKEN)
 
 DB_HOST = 'localhost'
 DB_NAME = 'st35380_userdbtelegram'
-DB_USER = 'st35380_userdbtelegram'
+DB_USER = 'da_sso_AWUxuXbER'
 DB_PASSWORD = 'Xalid1234'
 
 # Create a MySQL connection
