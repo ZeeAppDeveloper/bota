@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO)
 # Initialize bot
 bot = telebot.TeleBot(API_TOKEN)
 
-DB_HOST = '85.31.239.189'
+DB_HOST = 'storage2300.is.cc'
 DB_NAME = 'st35380_userdbtelegram'
 DB_USER = 'st35380_userdbtelegram'
 DB_PASSWORD = 'Xalid1234'
