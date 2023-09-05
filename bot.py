@@ -591,14 +591,6 @@ def handle_other_messages(message):
     elif user_input == '4':
         update_photo_step(message, chat_id)
 
-def main():
-    while True:
-        try:
-            bot.polling(none_stop=True)
-        except Exception as e:
-            print("Hata:", e)
-            print("Bot tekrar başlatılıyor...")
-            time.sleep(3)  # 10 saniye bekleyin ve yeniden deneyin
-
 if __name__ == '__main__':
-    main()
+  bot.polling(none_stop=True)
+  print(f"Hata oluştu: {e}")
