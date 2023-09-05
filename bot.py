@@ -494,6 +494,8 @@ def send_admin_message_to_all_users(message):
             bot.send_message(user_id, f"Admin mesajı:\n\n{admin_message}")
         except Exception as e:
             print(f"Hata oluştu: {e}")
+            cursor.execute("UPDATE userdb2 SET blocked = 1 WHERE id = %s", (user_id,))
+            db.commit()
 
     bot.reply_to(message, "Bütün istifadəçilərə mesaj göndərildi!")
 
