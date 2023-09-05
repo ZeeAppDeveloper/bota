@@ -163,7 +163,7 @@ def handle_matching_response(message, match_id, match_username, usernamesend):
     chat_id = message.chat.id
     response = message.text
     
-    update_sql = f"UPDATE userdb2 SET history = CONCAT(history, ',{match_id}') WHERE id = '{chat_id}'"
+    update_sql = f"UPDATE userdb2 SET history = CONCAT(history, ', {match_id}') WHERE id = '{chat_id}'"
     cursor.execute(update_sql)
     db.commit()
 
