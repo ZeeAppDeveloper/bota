@@ -1,6 +1,7 @@
 import logging
 import telebot
 import mysql.connector
+from background import keep_alive
 import random
 from telebot import types
 import time
@@ -13,9 +14,10 @@ logging.basicConfig(level=logging.INFO)
 # Initialize bot
 bot = telebot.TeleBot(API_TOKEN)
 
-DB_HOST = 'localhost'
+# MySQL database connection information
+DB_HOST = 'storage2300.is.cc '  # DirectAdmin sunucusunun IP adresi
 DB_NAME = 'st35380_userdbtelegram'
-DB_USER = 'da_sso_AWUxuXbER'
+DB_USER = 'st35380_userdbtelegram'
 DB_PASSWORD = 'Xalid1234'
 
 # Create a MySQL connection
@@ -24,7 +26,6 @@ db = mysql.connector.connect(
     database=DB_NAME,
     user=DB_USER,
     password=DB_PASSWORD,
-    connect_timeout=60 
 )
 
 cursor = db.cursor()
@@ -133,7 +134,11 @@ def start_matching(message):
         
 
         if match_result:
-          match_id, match_username, match_age, match_region, match_info, match_foto1 = match_result
+          try:
+              match_id, match_username, match_age, match_region, match_info, match_foto1 = match_result
+          except ValueError as e:
+              print("Hata oluştu, ancak kod devam ediyor. Hata mesajı:", e)
+              pass
 
           markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
           markup.add(types.KeyboardButton("❤️"), types.KeyboardButton("👎")) 
@@ -374,7 +379,7 @@ def save_info_step(message, chat_id, username, age, gender, region):
         bot.register_next_step_handler(message, save_info_step, chat_id, username, age, gender, region)
         return
 
-    likeing = 3  # Default value for likeing
+    likeing = 10  # Default value for likeing
 
     bot.reply_to(message, "Şəklinizi göndərin")
     bot.register_next_step_handler(message, save_photo_step, chat_id, username, age, gender, region, info, likeing)
@@ -585,15 +590,6 @@ def handle_other_messages(message):
     elif user_input == '4':
         update_photo_step(message, chat_id)
 
-
-def run_bot():
-    while True:
-        try:
-            bot.polling(none_stop=True)
-        except Exception as e:
-            print(f"Hata oluştu: {e}")
-            print("Kod durdu, 5 saniye sonra yeniden başlatılacak.")
-            time.sleep(5)  # 5 saniye bekleyin ve yeniden başlatın
-
 if __name__ == '__main__':
-    bot.polling(none_stop=True)
+  bot.polling(none_stop=True)
+  print(f"Hata oluştu: {e}")
