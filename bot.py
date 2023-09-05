@@ -131,12 +131,13 @@ def start_matching(message):
         cursor.execute(select_sql, select_val)
         match_result = cursor.fetchone()
         
-
+        #match_foto1 = None
         if match_result:
           try:
               match_id, match_username, match_age, match_region, match_info, match_foto1 = match_result
           except ValueError as e:
               print("Hata oluştu, ancak kod devam ediyor. Hata mesajı:", e)
+              print(match_id)
               pass
 
           markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
