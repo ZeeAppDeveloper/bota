@@ -1,7 +1,6 @@
 import logging
 import telebot
 import mysql.connector
-from background import keep_alive
 import random
 from telebot import types
 import time
