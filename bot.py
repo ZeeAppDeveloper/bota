@@ -25,6 +25,7 @@ db = mysql.connector.connect(
     database=DB_NAME,
     user=DB_USER,
     password=DB_PASSWORD,
+    connect_timeout = 10
 )
 
 cursor = db.cursor()
